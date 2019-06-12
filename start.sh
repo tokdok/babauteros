@@ -26,7 +26,16 @@ time3=$(gpw 1 6)
 time4=$(gpw 1 7)
 time5=$(gpw 1 8)
 time6=$(gpw 1 9)
+##################################
 
+pauseone=$(shuf -i 94-100 -n 1)
+pausetwo=$(shuf -i 92-98 -n 1)
+pausethree=$(shuf -i 76-82 -n 1)
+pausefour=$(shuf -i 73-79 -n 1)
+pausefive=$(shuf -i 79-85 -n 1)
+pausesix=$(shuf -i 65-71 -n 1)
+
+##################################
 #rm -rf /tmp/
 #mkdir /tmp
 for i in `atq | awk '{print $1}'`;do atrm $i;done
@@ -60,6 +69,15 @@ sudo mv /tmp/$tmpfoldername/5.sh /tmp/$tmpfoldername/$time5.sh
 sudo mv /tmp/$tmpfoldername/6.sh /tmp/$tmpfoldername/$time6.sh
 sleep 3
 
+
+##########################################################
+
+sudo sed -i "s/\<pauseone\>/$pauseone/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<pausetwo\>/$pausetwo/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<pausethree\>/$pausethree/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<pausefour\>/$pausefour/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<pausefive\>/$pausefive/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<pausesix\>/$pausesix/g" /tmp/$tmpfoldername/defaulttimer.sh
 
 ##########################################################
 
