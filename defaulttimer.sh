@@ -4,17 +4,17 @@ echo "Start"
 while (true) 
 do
  ./4.sh;
- sleep 76; 
+ sleep pausefour; 
   ./2.sh;
- sleep 95; 
+ sleep pausetwo; 
    ./5.sh;
- sleep 82; 
+ sleep pausefive; 
    ./3.sh;
- sleep 79; 
+ sleep pausethree; 
    ./6.sh;
- sleep 68; 
+ sleep pausesix; 
   ./1.sh;
- sleep 97; 
+ sleep pauseone; 
 done;
 
 
