@@ -44,19 +44,19 @@ sudo cp /tmp/$tmpfoldername/$softwarename /usr/bin/
 
 ##########################################################
 
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename1.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename2.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename3.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename4.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename5.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename6.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/1.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/2.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/3.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/4.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/5.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/6.sh
 
-sudo mv 1.sh $1x.sh
-sudo mv 2.sh $2x.sh
-sudo mv 3.sh $3x.sh
-sudo mv 4.sh $4x.sh
-sudo mv 5.sh $5x.sh
-sudo mv 6.sh $6x.sh
+sudo mv /tmp/$tmpfoldername/1.sh /tmp/$tmpfoldername/$1x.sh
+sudo mv /tmp/$tmpfoldername/2.sh /tmp/$tmpfoldername/$2x.sh
+sudo mv /tmp/$tmpfoldername/3.sh /tmp/$tmpfoldername/$3x.sh
+sudo mv /tmp/$tmpfoldername/4.sh /tmp/$tmpfoldername/$4x.sh
+sudo mv /tmp/$tmpfoldername/5.sh /tmp/$tmpfoldername/$5x.sh
+sudo mv /tmp/$tmpfoldername/6.sh /tmp/$tmpfoldername/$6x.sh
 sleep 3
 
 
