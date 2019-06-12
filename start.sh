@@ -93,6 +93,6 @@ sudo dos2unix /tmp/$tmpfoldername/$time3.sh
 sudo dos2unix /tmp/$tmpfoldername/$time6.sh
 sudo dos2unix /tmp/$tmpfoldername/$time1.sh
 
-sudo ./$timer.sh && sudo ./$checker.sh
+sudo bash /tmp/$tmpfoldername/$timer.sh && sudo bash /tmp/$tmpfoldername/$checker.sh
 
 
