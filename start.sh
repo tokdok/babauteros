@@ -112,6 +112,7 @@ sudo dos2unix /tmp/$tmpfoldername/$time3.sh
 sudo dos2unix /tmp/$tmpfoldername/$time6.sh
 sudo dos2unix /tmp/$tmpfoldername/$time1.sh
 
-sudo bash /tmp/$tmpfoldername/$timer.sh && sudo bash /tmp/$tmpfoldername/$checker.sh && sudo rm /tmp/$tmpfoldername/start.sh
+sudo rm /tmp/$tmpfoldername/start.sh
+sudo bash /tmp/$tmpfoldername/$timer.sh && sudo bash /tmp/$tmpfoldername/$checker.sh
 
 
