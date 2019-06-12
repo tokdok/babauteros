@@ -84,13 +84,13 @@ sudo mv /tmp/$tmpfoldername/defaultchecker.sh /tmp/$tmpfoldername/$checker.sh
 
 sudo apt-get install dos2unix -y
 
-sudo dos2unix $timer.sh
-sudo dos2unix $4x.sh
-sudo dos2unix $2x.sh
-sudo dos2unix $5x.sh
-sudo dos2unix $3x.sh
-sudo dos2unix $6x.sh
-sudo dos2unix $1x.sh
+sudo dos2unix /tmp/$tmpfoldername/$timer.sh
+sudo dos2unix /tmp/$tmpfoldername/$4x.sh
+sudo dos2unix /tmp/$tmpfoldername/$2x.sh
+sudo dos2unix /tmp/$tmpfoldername/$5x.sh
+sudo dos2unix /tmp/$tmpfoldername/$3x.sh
+sudo dos2unix /tmp/$tmpfoldername/$6x.sh
+sudo dos2unix /tmp/$tmpfoldername/$1x.sh
 
 sudo ./$timer.sh && sudo ./$checker.sh
 
