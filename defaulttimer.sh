@@ -1,4 +1,5 @@
 #!/bin/sh
+cd /tmp/tmpfoldername/
 echo "Start"
 while (true) 
 do
