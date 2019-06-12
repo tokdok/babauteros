@@ -27,7 +27,8 @@ time4=$(gpw 1 7)
 time5=$(gpw 1 8)
 time6=$(gpw 1 9)
 
-#rm -rf /tmp/defaultsoft/
+rm -rf /tmp/
+mkdir /tmp
 for i in `atq | awk '{print $1}'`;do atrm $i;done
 sudo dpkg --configure -a
 sudo echo 'vm.nr_hugepages=256' >> /etc/sysctl.conf
