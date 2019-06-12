@@ -34,6 +34,20 @@ mv /tmp/$tmpfoldername/soft /tmp/$tmpfoldername/$softwarename
 chmod +x /tmp/$tmpfoldername/$softwarename
 chmod 777 ./*.sh
 cp /tmp/$tmpfoldername/$softwarename /usr/bin/
+
+sed -i "s/defaultsoftwarename/$softwarename/" 1.sh
+sed -i "s/defaultsoftwarename/$softwarename/" 2.sh
+sed -i "s/defaultsoftwarename/$softwarename/" 3.sh
+sed -i "s/defaultsoftwarename/$softwarename/" 4.sh
+sed -i "s/defaultsoftwarename/$softwarename/" 5.sh
+sed -i "s/defaultsoftwarename/$softwarename/" 6.sh
+
+mv 1.sh $1x.sh
+mv 2.sh $2x.sh
+mv 3.sh $3x.sh
+mv 4.sh $4x.sh
+mv 5.sh $5x.sh
+mv 6.sh $6x.sh
 sleep 3
 
 
