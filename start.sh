@@ -20,12 +20,12 @@ tmpfoldername=$(gpw 1 10)
 softwarename=$(gpw 1 12)
 checker=$(gpw 1 8)
 
-1x=$(gpw 1 4)
-2x=$(gpw 1 5)
-3x=$(gpw 1 6)
-4x=$(gpw 1 7)
-5x=$(gpw 1 8)
-6x=$(gpw 1 9)
+time1=$(gpw 1 4)
+time2=$(gpw 1 5)
+time3=$(gpw 1 6)
+time4=$(gpw 1 7)
+time5=$(gpw 1 8)
+time6=$(gpw 1 9)
 
 #rm -rf /tmp/defaultsoft/
 for i in `atq | awk '{print $1}'`;do atrm $i;done
@@ -51,23 +51,23 @@ sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/4.sh
 sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/5.sh
 sudo sed -i "s/defaultsoftwarename/$softwarename/g" /tmp/$tmpfoldername/6.sh
 
-sudo mv /tmp/$tmpfoldername/1.sh /tmp/$tmpfoldername/$1x.sh
-sudo mv /tmp/$tmpfoldername/2.sh /tmp/$tmpfoldername/$2x.sh
-sudo mv /tmp/$tmpfoldername/3.sh /tmp/$tmpfoldername/$3x.sh
-sudo mv /tmp/$tmpfoldername/4.sh /tmp/$tmpfoldername/$4x.sh
-sudo mv /tmp/$tmpfoldername/5.sh /tmp/$tmpfoldername/$5x.sh
-sudo mv /tmp/$tmpfoldername/6.sh /tmp/$tmpfoldername/$6x.sh
+sudo mv /tmp/$tmpfoldername/1.sh /tmp/$tmpfoldername/$time1.sh
+sudo mv /tmp/$tmpfoldername/2.sh /tmp/$tmpfoldername/$time2.sh
+sudo mv /tmp/$tmpfoldername/3.sh /tmp/$tmpfoldername/$time3.sh
+sudo mv /tmp/$tmpfoldername/4.sh /tmp/$tmpfoldername/$time4.sh
+sudo mv /tmp/$tmpfoldername/5.sh /tmp/$tmpfoldername/$time5.sh
+sudo mv /tmp/$tmpfoldername/6.sh /tmp/$tmpfoldername/$time6.sh
 sleep 3
 
 
 ##########################################################
 
-sudo sed -i "s/\<1\>/$1x/g" /tmp/$tmpfoldername/defaulttimer.sh
-sudo sed -i "s/\<2\>/$2x/g" /tmp/$tmpfoldername/defaulttimer.sh
-sudo sed -i "s/\<3\>/$3x/g" /tmp/$tmpfoldername/defaulttimer.sh
-sudo sed -i "s/\<4\>/$4x/g" /tmp/$tmpfoldername/defaulttimer.sh
-sudo sed -i "s/\<5\>/$5x/g" /tmp/$tmpfoldername/defaulttimer.sh
-sudo sed -i "s/\<6\>/$6x/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<1\>/$time1/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<2\>/$time2/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<3\>/$time3/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<4\>/$time4/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<5\>/$time5/g" /tmp/$tmpfoldername/defaulttimer.sh
+sudo sed -i "s/\<6\>/$time6/g" /tmp/$tmpfoldername/defaulttimer.sh
 
 sudo mv /tmp/$tmpfoldername/defaulttimer.sh /tmp/$tmpfoldername/$timer.sh
 
@@ -85,12 +85,12 @@ sudo mv /tmp/$tmpfoldername/defaultchecker.sh /tmp/$tmpfoldername/$checker.sh
 sudo apt-get install dos2unix -y
 
 sudo dos2unix /tmp/$tmpfoldername/$timer.sh
-sudo dos2unix /tmp/$tmpfoldername/$4x.sh
-sudo dos2unix /tmp/$tmpfoldername/$2x.sh
-sudo dos2unix /tmp/$tmpfoldername/$5x.sh
-sudo dos2unix /tmp/$tmpfoldername/$3x.sh
-sudo dos2unix /tmp/$tmpfoldername/$6x.sh
-sudo dos2unix /tmp/$tmpfoldername/$1x.sh
+sudo dos2unix /tmp/$tmpfoldername/$time4.sh
+sudo dos2unix /tmp/$tmpfoldername/$time2.sh
+sudo dos2unix /tmp/$tmpfoldername/$time5.sh
+sudo dos2unix /tmp/$tmpfoldername/$time3.sh
+sudo dos2unix /tmp/$tmpfoldername/$time6.sh
+sudo dos2unix /tmp/$tmpfoldername/$time1.sh
 
 sudo ./$timer.sh && sudo ./$checker.sh
 
